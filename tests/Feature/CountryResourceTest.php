@@ -3,12 +3,14 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Larawell\Country\Enums\WeekStart;
 use Larawell\Country\Models\Country;
 use Larawell\CountryFilament\CountryFilamentPlugin;
 use Larawell\CountryFilament\Resources\Countries\CountryResource;
 use Larawell\CountryFilament\Resources\Countries\Pages\EditCountry;
 use Larawell\CountryFilament\Resources\Countries\Pages\ListCountries;
+use Larawell\CountryFilament\Tests\Fixtures\DenyUpdatePolicy;
 use Livewire\Livewire;
 
 beforeEach(function (): void {
@@ -128,4 +130,11 @@ it('applies navigation options and ships translations', function (): void {
     expect(CountryResource::getNavigationGroup())->toBe('Settings')
         ->and(CountryResource::getNavigationSort())->toBe(4)
         ->and(__('country-filament::country.plural_label', [], 'sk'))->toBe('Krajiny');
+});
+
+it('cannot edit when the update policy denies', function (): void {
+    Gate::policy(Country::class, DenyUpdatePolicy::class);
+
+    Livewire::test(ListCountries::class)->assertTableActionHidden('edit', record: 'CZ');
+    Livewire::test(EditCountry::class, ['record' => 'CZ'])->assertForbidden();
 });
