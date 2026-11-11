@@ -60,6 +60,13 @@
             }
         }
     ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Larawell\\CountryFilament\\CountryFilamentServiceProvider"
+            ]
+        }
+    },
     "scripts": {
         "test": "pest",
         "analyse": "phpstan analyse --memory-limit=1G",
