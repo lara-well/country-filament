@@ -1,0 +1,76 @@
+{
+    "name": "lara-well/country-filament",
+    "description": "Filament 5 administration of the lara-well/country reference table.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "filament",
+        "lara-well"
+    ],
+    "require": {
+        "php": "^8.5",
+        "filament/filament": "^5.0",
+        "lara-well/country": "^0.1",
+        "lara-well/currency": "^0.1",
+        "lara-well/language": "^0.1"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.15",
+        "laravel/pint": "^1.32",
+        "orchestra/testbench": "^11.3",
+        "pestphp/pest": "^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Larawell\\CountryFilament\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Larawell\\CountryFilament\\Tests\\": "tests/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../country",
+            "options": {
+                "versions": {
+                    "lara-well/country": "0.1.0"
+                }
+            }
+        },
+        {
+            "type": "path",
+            "url": "../currency",
+            "options": {
+                "versions": {
+                    "lara-well/currency": "0.1.0"
+                }
+            }
+        },
+        {
+            "type": "path",
+            "url": "../language",
+            "options": {
+                "versions": {
+                    "lara-well/language": "0.1.0"
+                }
+            }
+        }
+    ],
+    "scripts": {
+        "test": "pest",
+        "analyse": "phpstan analyse --memory-limit=1G",
+        "format": "pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
