@@ -34,7 +34,16 @@
     "repositories": [
         {
             "type": "path",
-            "url": "../country",
+            "url": "../../mybaby-api/lara-well/base",
+            "options": {
+                "versions": {
+                    "lara-well/base": "0.1.0"
+                }
+            }
+        },
+        {
+            "type": "path",
+            "url": "../../mybaby-api/lara-well/country",
             "options": {
                 "versions": {
                     "lara-well/country": "0.1.0"
@@ -43,7 +52,7 @@
         },
         {
             "type": "path",
-            "url": "../currency",
+            "url": "../../mybaby-api/lara-well/currency",
             "options": {
                 "versions": {
                     "lara-well/currency": "0.1.0"
@@ -52,7 +61,7 @@
         },
         {
             "type": "path",
-            "url": "../language",
+            "url": "../../mybaby-api/lara-well/language",
             "options": {
                 "versions": {
                     "lara-well/language": "0.1.0"
