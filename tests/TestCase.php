@@ -18,12 +18,12 @@ use Filament\Widgets\WidgetsServiceProvider;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Schema;
-use Larawell\Country\CountryServiceProvider;
-use Larawell\CountryFilament\CountryFilamentServiceProvider;
+use Larawell\Country\Providers\CountryServiceProvider;
+use Larawell\CountryFilament\Providers\CountryFilamentServiceProvider;
 use Larawell\CountryFilament\Tests\Fixtures\AdminPanelProvider;
 use Larawell\CountryFilament\Tests\Fixtures\User;
-use Larawell\Currency\CurrencyServiceProvider;
-use Larawell\Language\LanguageServiceProvider;
+use Larawell\Currency\Providers\CurrencyServiceProvider;
+use Larawell\Language\Providers\LanguageServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 

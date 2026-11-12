@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Larawell\CountryFilament\CountryFilamentServiceProvider;
+use Larawell\CountryFilament\Providers\CountryFilamentServiceProvider;
 
 it('registers its service provider for Laravel package discovery', function (): void {
     /** @var array{extra: array{laravel: array{providers: list<string>}}} $composer */

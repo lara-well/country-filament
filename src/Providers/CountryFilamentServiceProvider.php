@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Larawell\CountryFilament;
+namespace Larawell\CountryFilament\Providers;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
