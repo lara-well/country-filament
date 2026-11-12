@@ -138,3 +138,14 @@ it('cannot edit when the update policy denies', function (): void {
     Livewire::test(ListCountries::class)->assertTableActionHidden('edit', record: 'CZ');
     Livewire::test(EditCountry::class, ['record' => 'CZ'])->assertForbidden();
 });
+
+it('has a helper text on every form field', function (): void {
+    $schema = Livewire::test(EditCountry::class, ['record' => 'CZ'])->instance()->getSchema('form');
+
+    expect($schema->getFlatFields(withHidden: true))->not->toBeEmpty()
+        ->and(fieldsWithoutHelperText($schema))->toBe([]);
+});
+
+it('has no tabs on the list page', function (): void {
+    expect(Livewire::test(ListCountries::class)->instance()->getCachedTabs())->toBe([]);
+});

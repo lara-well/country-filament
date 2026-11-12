@@ -21,6 +21,8 @@ final class CountryForm
     {
         return $schema->components([
             Section::make(__('country-filament::country.sections.country'))
+                ->description(__('country-filament::country.sections.country_description'))
+                ->columnSpanFull()
                 ->columns(2)
                 ->schema([
                     TextEntry::make('id')->label(__('country-filament::country.fields.id')),
@@ -34,15 +36,18 @@ final class CountryForm
                 ]),
             Section::make(__('country-filament::country.sections.defaults'))
                 ->description(__('country-filament::country.sections.defaults_description'))
+                ->columnSpanFull()
                 ->columns(2)
                 ->schema([
                     Select::make('currency_id')
                         ->label(__('country-filament::country.fields.currency_id'))
+                        ->helperText(__('country-filament::country.help.currency_id'))
                         ->options(static fn (): array => Currency::query()->orderBy('id')->get(['id', 'name'])
                             ->mapWithKeys(static fn (Currency $currency): array => [$currency->id => $currency->id.' – '.$currency->name])->all())
                         ->searchable(),
                     Select::make('language_id')
                         ->label(__('country-filament::country.fields.language_id'))
+                        ->helperText(__('country-filament::country.help.language_id'))
                         ->options(static fn (): array => Language::query()->orderBy('name')->get(['id', 'name', 'native_name'])
                             ->mapWithKeys(static fn (Language $language): array => [$language->id => $language->id.' – '.$language->native_name])->all())
                         ->searchable(),
@@ -54,6 +59,7 @@ final class CountryForm
                         ->maxLength(8),
                     Select::make('week_start')
                         ->label(__('country-filament::country.fields.week_start'))
+                        ->helperText(__('country-filament::country.help.week_start'))
                         ->options(self::weekStarts())
                         ->required(),
                     Toggle::make('eu_member')

@@ -8,6 +8,7 @@ return [
     'empty' => 'Nenašli sa žiadne krajiny',
     'sections' => [
         'country' => 'Krajina',
+        'country_description' => 'Referenčné údaje z normy ISO 3166. Tieto hodnoty sa tu nedajú zmeniť.',
         'defaults' => 'Predvolené hodnoty',
         'defaults_description' => 'Použijú sa ako východiskové hodnoty pre používateľov z tejto krajiny.',
     ],
@@ -23,6 +24,9 @@ return [
         'eu_member' => 'Člen EÚ',
     ],
     'help' => [
+        'currency_id' => 'Mena, ktorá sa predvolene použije pre používateľov z tejto krajiny. Nechajte prázdne, ak nemá byť žiadna.',
+        'language_id' => 'Hlavný jazyk, ktorý sa predvolene použije pre používateľov z tejto krajiny. Nechajte prázdne, ak nemá byť žiadny.',
+        'week_start' => 'Prvý deň týždňa v kalendároch pre používateľov z tejto krajiny.',
         'calling_code' => 'Medzinárodná predvoľba so znamienkom plus, napríklad +421.',
         'eu_member' => 'Zapnite pri členských štátoch Európskej únie.',
     ],
